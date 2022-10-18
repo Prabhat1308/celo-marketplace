@@ -1,42 +1,19 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
-contract NFTMarketplace {
-    
-    struct Listings {
-        uint price;
-        address seller;
+contract CeloNFT is ERC721 {
+    constructor() ERC721("CeloNFT", "cNFT") {
+        // mint 5 NFTs to yourself
+        for (uint i = 0; i < 5; i++) {
+            _mint(msg.sender, i);
+        }
     }
 
-    mapping(address =>(mapping(uint => Listings))) public listings;
-    
-    modifier isNFTOwner(address nftaddress, uint tokenID){
-
-    require(
-        IERC721(nftaddress).ownerOf(tokenID)==msg.sender,"Not the owner"
-    );
-    _;
-
+    // Hardcoded token URI will return the same metadata
+    // for each NFT
+    function tokenURI(uint) public pure override returns (string memory) {
+        return "ipfs://QmTy8w65yBXgyfG2ZBg5TrfB2hPjrDQH3RCQFJGkARStJb";
     }
-
-    modifier isNotListed(){
-         require(
-        listings[nftAddress][tokenId].price == 0,
-        "MRKT: Already listed"
-    );
-    _;
-    }
-    
-
-    function createListing(
-        address nftaddress ,
-        uint tokenID,
-        uint price
-    ) external {
-        
-    }
-
-
 }
