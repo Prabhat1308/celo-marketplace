@@ -1,0 +1,6 @@
+type ExampleEntity @entity {
+  id: ID!
+  count: BigInt!
+  nftaddress: Bytes! # address
+  tokenID: BigInt! # uint256
+}
