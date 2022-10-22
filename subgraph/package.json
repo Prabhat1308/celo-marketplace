@@ -4,7 +4,7 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ Prabhat1308/celo-nft-marketplace",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ prabhat1308/celo-nft-marketplace",
     "create-local": "graph create --node http://localhost:8020/ Prabhat1308/celo-nft-marketplace",
     "remove-local": "graph remove --node http://localhost:8020/ Prabhat1308/celo-nft-marketplace",
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 Prabhat1308/celo-nft-marketplace",
